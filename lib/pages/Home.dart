@@ -1,4 +1,3 @@
-import 'package:todo_app/config/colors.dart';
 import 'package:todo_app/config/imorts.dart';
 
 class HomePage extends StatefulWidget {
@@ -13,21 +12,12 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        padding: EdgeInsets.symmetric(horizontal: 16, vertical: 10),
-        child: Column(children: [
-          Container(
-            width: double.maxFinite,
-            decoration: BoxDecoration(
-              color: AppColor.primary,
-            ),
-            child: Text(
-              "Label",
-              style:
-                  TextStyle(color: AppColor.white, fontWeight: FontWeight.w600),
-              textAlign: TextAlign.center,
-            ),
-          )
-        ]),
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+        child: Column(
+          children: [
+            Button(text: "label", onTap: () {}),
+          ],
+        ),
       ),
     );
   }
