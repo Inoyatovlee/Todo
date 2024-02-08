@@ -21,8 +21,8 @@ class _HomePageState extends State<HomePage> {
             Input(
               hindText: "Username",
               label: "Ismingizni kiriting",
-              denger: name.text.trim().isEmpty,
-              demgerText: "Ismingizni kiritmadingiz",
+              // denger: name.text.trim().isEmpty,
+              // demgerText: "Ismingizni kiritmadingiz",
               controller: name, // tepada yozilishini taminlayapti changed
               changed: (value) {
                 setState(() {});

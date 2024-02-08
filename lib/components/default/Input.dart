@@ -7,6 +7,7 @@ class Input extends StatelessWidget {
   String? demgerText;
   TextEditingController? controller;
   Function? changed;
+
   Input({
     super.key,
     this.hindText,
@@ -31,7 +32,7 @@ class Input extends StatelessWidget {
                 ),
                 const SizedBox(height: 4),
               ]),
-        TextField(
+        TextFormField(
           cursorColor: AppColor.blue,
           controller: controller,
           onChanged: (value) {
@@ -41,6 +42,7 @@ class Input extends StatelessWidget {
           },
           decoration: InputDecoration(
             hintText: hindText,
+            errorText: denger! ? demgerText : null,
             // filled: true,
             // fillColor: AppColor.blue3,
             hintStyle: TextStyle(color: AppColor.blue7),
@@ -55,11 +57,6 @@ class Input extends StatelessWidget {
                 borderRadius: const BorderRadius.all(Radius.circular(16))),
           ),
         ),
-        SizedBox(height: denger! ? 4 : 0),
-        denger!
-            ? Text(demgerText!,
-                style: const TextStyle(color: Colors.red, fontSize: 10))
-            : const SizedBox(),
       ],
     );
   }
