@@ -7,3 +7,5 @@ export 'package:todo_app/components/default/Button.dart';
 export 'package:todo_app/components/default/Input.dart';
 export 'package:todo_app/pages/splash.dart';
 export 'package:todo_app/config/images.dart';
+export 'package:todo_app/pages/welcome.dart';
+export 'dart:async';

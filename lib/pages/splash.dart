@@ -9,6 +9,14 @@ class Splash extends StatefulWidget {
 
 class _SplashState extends State<Splash> {
   @override
+  void initState() {
+    // 3 secund kutib turib Welcome ga o'tib ketsin
+    Timer(const Duration(seconds: 3), () {
+      Get.off(() => const Welcome());
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
@@ -16,10 +24,19 @@ class _SplashState extends State<Splash> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image.asset(AppImages.logo, width: 120),
+            const SizedBox(height: 24),
             Text(
-              "ToDo App",
-              style: TextStyle(fontSize: 24),
-            )
+              "Todo App",
+              style: TextStyle(
+                  fontSize: 30,
+                  fontWeight: FontWeight.w700,
+                  color: AppColor.blue7),
+            ),
+            SizedBox(
+                width: 30,
+                height: 30,
+                child: CircularProgressIndicator(
+                    color: AppColor.blue, strokeWidth: 2))
           ],
         ),
       ),
