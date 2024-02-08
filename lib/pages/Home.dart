@@ -1,3 +1,4 @@
+import 'package:todo_app/components/default/Input.dart';
 import 'package:todo_app/config/imorts.dart';
 
 class HomePage extends StatefulWidget {
@@ -14,9 +15,7 @@ class _HomePageState extends State<HomePage> {
       body: Container(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
         child: Column(
-          children: [
-            Button(text: "label", onTap: () {}),
-          ],
+          children: [Input()],
         ),
       ),
     );
