@@ -11,9 +11,19 @@ class _StepOneState extends State<StepOne> {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Column(children: [
-        Image.asset(
-          AppImages.step1,
+      child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+        Text(
+          'Hush Kelibsiz',
+          textAlign: TextAlign.center,
+          style: TextStyle(
+              color: AppColor.blue7, fontWeight: FontWeight.w700, fontSize: 32),
+        ),
+        Image.asset(AppImages.step1, width: 300),
+        Text(
+          "efyu iehiuuh eyghfiesh f uehufhheufh  euhfuhihef  hesufhi3ahsf rje vge easyfissdnvr euphasgehru",
+          textAlign: TextAlign.center,
+          style: TextStyle(
+              color: AppColor.blue7, fontWeight: FontWeight.w600, height: 1.5),
         ),
       ]),
     );
