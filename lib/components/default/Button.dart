@@ -1,5 +1,6 @@
 import 'package:todo_app/config/imorts.dart';
 
+// ignore: must_be_immutable
 class Button extends StatelessWidget {
   String text;
   Function? onTap;

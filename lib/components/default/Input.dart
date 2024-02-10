@@ -1,5 +1,6 @@
 import 'package:todo_app/config/imorts.dart';
 
+// ignore: must_be_immutable
 class Input extends StatelessWidget {
   String? hindText;
   String? label;

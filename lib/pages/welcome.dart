@@ -11,49 +11,72 @@ class _WelcomeState extends State<Welcome> {
   WelcomeController controller = Get.put(WelcomeController());
 
   @override
-  void initState() {
-    controller.pageContoller = PageController(initialPage: 0);
-    super.initState();
+  void dispose() {
+    controller.pageController.dispose();
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        body: Column(
-      children: [
-        Stack(
-          children: [
-            PageView.builder(
-                controller: controller.pageContoller,
-                itemCount: controller.pages
-                    .length, //ishlashini  bilib turish uchun onPagechanged..
-                onPageChanged: (value) {
-                  FocusScope.of(context).requestFocus(FocusNode());
-                },
-                itemBuilder: (context, index) {
-                  return controller.pages[index];
-                }),
-            Container(
-                alignment: const Alignment(0, 0.7),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Text(
-                      "Orqaga",
-                      style: TextStyle(
-                          color: controller.currentPage == 0
-                              ? AppColor.grey7
-                              : AppColor.primary),
-                    ),
-                    SmoothPageIndicator(
-                        controller: controller.pageContoller,
-                        count: controller.pages.length),
-                    const Text("Oldinga"),
-                  ],
-                ))
-          ],
-        ),
-      ],
-    ));
+    return GetBuilder<WelcomeController>(
+      builder: (controller) {
+        return Scaffold(
+          body: Center(
+            child: Stack(
+              children: [
+                PageView.builder(
+                  controller: controller.pageController,
+                  itemCount: controller.pages.length,
+                  onPageChanged: (value) {
+                    FocusScope.of(context).requestFocus(FocusNode());
+                    controller.setPageIndex(value);
+                  },
+                  itemBuilder: (context, index) {
+                    return controller.pages[index];
+                  },
+                ),
+                Container(
+                    alignment: const Alignment(0, 0.8),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        SizedBox(
+                          width: 70,
+                          child: InkWell(
+                            onTap: () {
+                              controller.back();
+                            },
+                            child: Text(
+                              'Back',
+                              style: TextStyle(
+                                  color: controller.currentPage == 0
+                                      ? AppColor.grey7
+                                      : AppColor.blue7),
+                            ),
+                          ),
+                        ),
+                        SmoothPageIndicator(
+                            controller: controller.pageController,
+                            count: controller.pages.length),
+                        SizedBox(
+                          width: 70,
+                          child: InkWell(
+                            onTap: () {
+                              controller.next();
+                            },
+                            child: Text(
+                              controller.currentPage == 2 ? "Start" : 'Next',
+                              style: TextStyle(color: AppColor.blue7),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ))
+              ],
+            ),
+          ),
+        );
+      },
+    );
   }
 }
