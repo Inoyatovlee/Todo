@@ -11,7 +11,7 @@ class _StepTwoState extends State<StepTwo> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: const Column(children: [Text("Strp 1")]),
+      child: const Column(children: [Text("Strp 2")]),
     );
   }
 }

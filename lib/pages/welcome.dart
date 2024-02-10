@@ -1,4 +1,3 @@
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:todo_app/config/imorts.dart';
 
 class Welcome extends StatefulWidget {
@@ -9,28 +8,51 @@ class Welcome extends StatefulWidget {
 }
 
 class _WelcomeState extends State<Welcome> {
-  final PageController pageController = PageController();
+  WelcomeController controller = Get.put(WelcomeController());
+
+  @override
+  void initState() {
+    controller.pageContoller = PageController(initialPage: 0);
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Stack(
+        body: Column(
       children: [
-        PageView(
-          scrollDirection: Axis.horizontal,
-          controller: pageController,
-          children: const [
-            Center(
-              child: Text("Page 1"),
-            ),
-            Center(
-              child: Text("Page 2"),
-            ),
-            Center(
-              child: Text("Page 3"),
-            ),
+        Stack(
+          children: [
+            PageView.builder(
+                controller: controller.pageContoller,
+                itemCount: controller.pages
+                    .length, //ishlashini  bilib turish uchun onPagechanged..
+                onPageChanged: (value) {
+                  FocusScope.of(context).requestFocus(FocusNode());
+                },
+                itemBuilder: (context, index) {
+                  return controller.pages[index];
+                }),
+            Container(
+                alignment: const Alignment(0, 0.7),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Text(
+                      "Orqaga",
+                      style: TextStyle(
+                          color: controller.currentPage == 0
+                              ? AppColor.grey7
+                              : AppColor.primary),
+                    ),
+                    SmoothPageIndicator(
+                        controller: controller.pageContoller,
+                        count: controller.pages.length),
+                    const Text("Oldinga"),
+                  ],
+                ))
           ],
         ),
-        // SmoothPageIndicator(controller: controller, count: count)
       ],
     ));
   }
