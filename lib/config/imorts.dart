@@ -15,3 +15,4 @@ export 'package:todo_app/components/welcome/step1.dart';
 export 'package:todo_app/components/welcome/step3.dart';
 export 'package:todo_app/stores/welcome_controller.dart';
 export 'package:smooth_page_indicator/smooth_page_indicator.dart';
+export 'package:flutter/widgets.dart';

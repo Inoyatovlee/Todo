@@ -10,8 +10,12 @@ class StepTwo extends StatefulWidget {
 class _StepTwoState extends State<StepTwo> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: const Column(children: [Text("Strp 2")]),
+    return Center(
+      child: Column(children: [
+        Image.asset(
+          AppImages.step2,
+        ),
+      ]),
     );
   }
 }
