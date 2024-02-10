@@ -1,3 +1,4 @@
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:todo_app/config/imorts.dart';
 
 class Welcome extends StatefulWidget {
@@ -12,19 +13,24 @@ class _WelcomeState extends State<Welcome> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: PageView(
-      scrollDirection: Axis.horizontal,
-      controller: pageController,
-      children: const [
-        Center(
-          child: Text("Page 1"),
+        body: Stack(
+      children: [
+        PageView(
+          scrollDirection: Axis.horizontal,
+          controller: pageController,
+          children: const [
+            Center(
+              child: Text("Page 1"),
+            ),
+            Center(
+              child: Text("Page 2"),
+            ),
+            Center(
+              child: Text("Page 3"),
+            ),
+          ],
         ),
-        Center(
-          child: Text("Page 2"),
-        ),
-        Center(
-          child: Text("Page 3"),
-        ),
+        // SmoothPageIndicator(controller: controller, count: count)
       ],
     ));
   }
