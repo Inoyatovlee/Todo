@@ -11,21 +11,21 @@ class _StepTwoState extends State<StepTwo> {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-        Text(
-          'Hush Kelibsiz',
-          textAlign: TextAlign.center,
-          style: TextStyle(
-              color: AppColor.blue7, fontWeight: FontWeight.w700, fontSize: 32),
-        ),
-        Image.asset(AppImages.step1, width: 300),
-        Text(
-          "efyu iehiuuh eyghfiesh f uehufhheufh  euhfuhihef  hesufhi3ahsf rje vge easyfissdnvr euphasgehru",
-          textAlign: TextAlign.center,
-          style: TextStyle(
-              color: AppColor.blue7, fontWeight: FontWeight.w600, height: 1.5),
-        ),
-      ]),
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 16),
+        constraints: BoxConstraints(maxWidth: 500),
+        child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+          Image.asset(AppImages.step2, width: 300),
+          Text(
+            "Vazifalar ro'yxati - Jadvalni rejalashtiruvchi va bajariladigan ishlar ro'yxati Vazifa menejeri bu bepul va oson onlayn ishlar ro'yxati menejeri va vaqtni rejalashtirishda foydalanish mumkin bo'lgan dastur.",
+            textAlign: TextAlign.center,
+            style: TextStyle(
+                color: AppColor.blue7,
+                fontWeight: FontWeight.w600,
+                height: 1.5),
+          ),
+        ]),
+      ),
     );
   }
 }

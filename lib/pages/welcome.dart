@@ -70,6 +70,12 @@ class _WelcomeState extends State<Welcome> {
                             ),
                           ),
                         ),
+                        InkWell(
+                          onTap: () {
+                            controller.findUsersFromId();
+                          },
+                          child: Text("Test"),
+                        )
                       ],
                     ))
               ],
