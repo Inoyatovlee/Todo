@@ -31,13 +31,16 @@ class _MainPageState extends State<MainPage> {
                     children: List.generate(controller.menus.length, (index) {
                       var item = controller.menus[index];
                       return InkWell(
-                          onTap: () {},
+                          onTap: () {
+                            controller.setWidget(item['page']);
+                          },
                           child: Padding(
-                              padding: EdgeInsets.all(10),
+                              padding: const EdgeInsets.all(10),
                               child: SvgPicture.asset(item['icon'])));
                     })),
               ),
             ),
+            body: controller.currentWidget,
           );
         },
       ),
