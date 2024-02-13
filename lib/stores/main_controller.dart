@@ -2,10 +2,10 @@ import 'package:todo_app/config/imorts.dart';
 
 class MainController extends GetxController {
   List menus = [
-    {"id": 1, "icon": AppIcon.home, "page": HomePage()},
-    {"id": 2, "icon": AppIcon.calendar},
-    {"id": 3, "icon": AppIcon.add},
-    {"id": 4, "icon": AppIcon.bell},
-    {"id": 5, "icon": AppIcon.shield}
+    {"id": 1, "icon": AppIcon.home, "page": const HomePage()},
+    {"id": 2, "icon": AppIcon.calendar, "page": const CalendarPage()},
+    {"id": 3, "icon": AppIcon.add, "page": const ProfilePage()},
+    {"id": 4, "icon": AppIcon.bell, "page": const BallPage()},
+    {"id": 5, "icon": AppIcon.shield, "page": const AddPage()}
   ];
 }

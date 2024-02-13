@@ -32,7 +32,7 @@ class _MainPageState extends State<MainPage> {
                       var item = controller.menus[index];
                       return InkWell(
                           onTap: () {},
-                          child: Container(
+                          child: Padding(
                               padding: EdgeInsets.all(10),
                               child: SvgPicture.asset(item['icon'])));
                     })),
