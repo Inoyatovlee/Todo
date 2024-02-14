@@ -36,7 +36,10 @@ class _MainPageState extends State<MainPage> {
                           },
                           child: Padding(
                               padding: const EdgeInsets.all(10),
-                              child: SvgPicture.asset(item['icon'])));
+                              child: SvgPicture.asset(item['icon'],
+                                  color: controller.activePage(item['page'])
+                                      ? AppColor.blue7
+                                      : AppColor.grey7)));
                     })),
               ),
             ),

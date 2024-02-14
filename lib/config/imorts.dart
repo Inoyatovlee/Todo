@@ -24,3 +24,4 @@ export 'package:todo_app/pages/add.dart';
 export 'package:todo_app/pages/ball.dart';
 export 'package:todo_app/pages/calendar.dart';
 export 'package:todo_app/pages/profile.dart';
+export 'package:get_storage/get_storage.dart';

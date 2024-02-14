@@ -16,4 +16,9 @@ class MainController extends GetxController {
     currentWidget = page;
     update();
   }
+
+// turgan page ni rangini o'zgartirish
+  bool activePage(Widget page) {
+    return currentWidget == page;
+  }
 }

@@ -1,6 +1,12 @@
 import 'package:todo_app/config/imorts.dart';
 
 class WelcomeController extends GetxController {
+  @override
+  void onInit() {
+    GetStorage().write('welcome', true);
+    super.onInit();
+  }
+
   // void onInit() {
   //   GetStorage().write('welcome', true);
   //   super.onInit();

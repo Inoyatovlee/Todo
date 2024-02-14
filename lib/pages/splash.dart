@@ -10,6 +10,8 @@ class Splash extends StatefulWidget {
 class _SplashState extends State<Splash> {
   @override
   void initState() {
+    //bu boshqa darsa m,getStorage
+    bool welcome = GetStorage().read('welcome');
     // 3 secund kutib turib Welcome ga o'tib ketsin
     Timer(const Duration(seconds: 3), () {
       Get.off(() => const Welcome());

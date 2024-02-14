@@ -1,6 +1,7 @@
 import 'package:todo_app/config/imorts.dart';
 
-void main() {
+void main() async {
+  await GetStorage.init();
   runApp(const MyApp());
 }
 
