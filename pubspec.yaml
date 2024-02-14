@@ -17,7 +17,9 @@ dependencies:
   get: ^4.6.6
   path: ^1.8.3
   sqflite: ^2.3.0
-  
+  smooth_page_indicator: ^1.1.0
+  flutter_svg: ^2.0.9
+  get_storage: ^2.1.1
 
 
   #UX
