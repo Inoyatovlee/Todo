@@ -11,10 +11,15 @@ class _SplashState extends State<Splash> {
   @override
   void initState() {
     //bu boshqa darsa m,getStorage
-    bool welcome = GetStorage().read('welcome');
+    // ignore: unused_local_variable
+    bool welcome = GetStorage().read('welcome') ?? false;
     // 3 secund kutib turib Welcome ga o'tib ketsin
     Timer(const Duration(seconds: 3), () {
-      Get.off(() => const Welcome());
+      if (welcome) {
+        Get.off(() => const MainPage());
+      } else {
+        Get.off(() => const Welcome());
+      }
     });
   }
 

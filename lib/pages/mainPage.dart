@@ -32,18 +32,18 @@ class _MainPageState extends State<MainPage> {
                       var item = controller.menus[index];
                       return InkWell(
                           onTap: () {
-                            controller.setWidget(item['page']);
+                            controller.setWidget(item['id']);
                           },
                           child: Padding(
-                              padding: const EdgeInsets.all(10),
+                              padding: EdgeInsets.all(10),
                               child: SvgPicture.asset(item['icon'],
-                                  color: controller.activePage(item['page'])
+                                  color: item['id'] == controller.currentPageId
                                       ? AppColor.blue7
                                       : AppColor.grey7)));
                     })),
               ),
             ),
-            body: controller.currentWidget,
+            body: controller.currentWidget(),
           );
         },
       ),
