@@ -1,4 +1,5 @@
 import 'package:todo_app/config/imorts.dart';
+import 'package:todo_app/stores/task_controller.dart';
 
 class CreateTask extends StatefulWidget {
   const CreateTask({super.key});
@@ -8,6 +9,8 @@ class CreateTask extends StatefulWidget {
 }
 
 class _CreateTaskState extends State<CreateTask> {
+  TaskController controller = Get.put(TaskController());
+
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -56,31 +59,68 @@ class _CreateTaskState extends State<CreateTask> {
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 15),
               decoration: BoxDecoration(
+                  borderRadius: const BorderRadius.only(
+                      topLeft: Radius.circular(15),
+                      topRight: Radius.circular(15)),
                   gradient: LinearGradient(
                       begin: Alignment.topCenter,
                       end: Alignment.bottomCenter,
-                      colors: [AppColor.blue5, AppColor.blue7])),
+                      colors: [AppColor.blue, AppColor.blue5])),
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   TextField(
+                    maxLines: 3,
                     style: TextStyle(
-                        color: AppColor.blue7,
+                        color: AppColor.white,
                         fontWeight: FontWeight.w800,
                         fontSize: 20),
-                    cursorColor: AppColor.blue5,
+                    cursorColor: AppColor.white,
                     decoration: InputDecoration(
-                        label: Text("Task title",
+                        label: Text("Discription",
                             style: TextStyle(
                                 color: AppColor.white,
                                 fontSize: 16,
                                 fontWeight: FontWeight.w400)),
                         enabledBorder: UnderlineInputBorder(
                             borderSide:
-                                BorderSide(color: AppColor.blue, width: 1.0)),
+                                BorderSide(color: AppColor.white, width: 1.0)),
                         focusedBorder: UnderlineInputBorder(
                             borderSide:
-                                BorderSide(color: AppColor.blue, width: 2.0))),
+                                BorderSide(color: AppColor.white, width: 2.0))),
                   ),
+                  const SizedBox(height: 15),
+                  Text(
+                    "Category",
+                    style: TextStyle(
+                        color: AppColor.white,
+                        fontWeight: FontWeight.w500,
+                        fontSize: 16),
+                  ),
+                  const SizedBox(height: 15),
+                  Wrap(
+                    children: [
+                      InkWell(
+                        onTap: () {
+                          print("object");
+                        },
+                        child: Container(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 20, vertical: 10),
+                          decoration: BoxDecoration(
+                              color: AppColor.white,
+                              borderRadius: BorderRadius.circular(20)),
+                          child: Text(
+                            "Design",
+                            style: TextStyle(
+                                fontSize: 12,
+                                color: AppColor.blue7,
+                                fontWeight: FontWeight.w600),
+                          ),
+                        ),
+                      )
+                    ],
+                  )
                 ],
               ),
             )
