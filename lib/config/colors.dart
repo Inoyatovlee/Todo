@@ -6,6 +6,7 @@ class AppColor {
   static Color blue = HexColor.fromHex("#7EBCFB");
   static Color blue9 = HexColor.fromHex("#05425C");
   static Color blue7 = HexColor.fromHex("#154FA6");
+  static Color blue5 = HexColor.fromHex("#3F9FFF");
   static Color blue3 = const Color.fromARGB(180, 199, 215, 234);
   static Color grey7 = Color.fromARGB(180, 117, 115, 115);
 }
