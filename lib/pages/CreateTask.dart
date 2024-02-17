@@ -1,5 +1,4 @@
 import 'package:todo_app/config/imorts.dart';
-import 'package:todo_app/stores/task_controller.dart';
 
 class CreateTask extends StatefulWidget {
   const CreateTask({super.key});
@@ -13,120 +12,133 @@ class _CreateTaskState extends State<CreateTask> {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        const Positioned(top: -100, child: CircleContainer()),
-        const Positioned(top: -30, left: -60, child: CircleContainer()),
-        Column(
+    return GetBuilder<TaskController>(
+      builder: (controller) {
+        return Stack(
           children: [
-            Row(
+            const Positioned(top: -100, child: CircleContainer()),
+            const Positioned(top: -30, left: -60, child: CircleContainer()),
+            Column(
               children: [
-                const Spacer(),
-                Text("Create a Task",
-                    style: TextStyle(
-                        color: AppColor.blue5,
-                        fontWeight: FontWeight.w600,
-                        fontSize: 18)),
-                const Spacer(),
-                SvgPicture.asset(AppIcon.search, color: AppColor.blue5),
-              ],
-            ),
-            //task  title
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 30),
-              child: TextField(
-                style: TextStyle(
-                    color: AppColor.blue7,
-                    fontWeight: FontWeight.w800,
-                    fontSize: 20),
-                cursorColor: AppColor.blue5,
-                decoration: InputDecoration(
-                    label: Text("Task title",
+                Row(
+                  children: [
+                    const Spacer(),
+                    Text("Create a Task",
                         style: TextStyle(
                             color: AppColor.blue5,
-                            fontSize: 16,
-                            fontWeight: FontWeight.w400)),
-                    enabledBorder: UnderlineInputBorder(
-                        borderSide:
-                            BorderSide(color: AppColor.blue, width: 1.0)),
-                    focusedBorder: UnderlineInputBorder(
-                        borderSide:
-                            BorderSide(color: AppColor.blue, width: 2.0))),
-              ),
-            ),
-            const SizedBox(height: 50),
-            //task discription
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 15),
-              decoration: BoxDecoration(
-                  borderRadius: const BorderRadius.only(
-                      topLeft: Radius.circular(15),
-                      topRight: Radius.circular(15)),
-                  gradient: LinearGradient(
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
-                      colors: [AppColor.blue, AppColor.blue5])),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  TextField(
-                    maxLines: 3,
+                            fontWeight: FontWeight.w600,
+                            fontSize: 18)),
+                    const Spacer(),
+                    SvgPicture.asset(AppIcon.search, color: AppColor.blue5),
+                  ],
+                ),
+                //task  title
+                Container(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 25, vertical: 30),
+                  child: TextField(
                     style: TextStyle(
-                        color: AppColor.white,
+                        color: AppColor.blue7,
                         fontWeight: FontWeight.w800,
                         fontSize: 20),
-                    cursorColor: AppColor.white,
+                    cursorColor: AppColor.blue5,
                     decoration: InputDecoration(
-                        label: Text("Discription",
+                        label: Text("Task title",
                             style: TextStyle(
-                                color: AppColor.white,
+                                color: AppColor.blue5,
                                 fontSize: 16,
                                 fontWeight: FontWeight.w400)),
                         enabledBorder: UnderlineInputBorder(
                             borderSide:
-                                BorderSide(color: AppColor.white, width: 1.0)),
+                                BorderSide(color: AppColor.blue, width: 1.0)),
                         focusedBorder: UnderlineInputBorder(
                             borderSide:
-                                BorderSide(color: AppColor.white, width: 2.0))),
+                                BorderSide(color: AppColor.blue, width: 2.0))),
                   ),
-                  const SizedBox(height: 15),
-                  Text(
-                    "Category",
-                    style: TextStyle(
-                        color: AppColor.white,
-                        fontWeight: FontWeight.w500,
-                        fontSize: 16),
-                  ),
-                  const SizedBox(height: 15),
-                  Wrap(
+                ),
+                const SizedBox(height: 50),
+                //task discription
+                Container(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 25, vertical: 15),
+                  decoration: BoxDecoration(
+                      borderRadius: const BorderRadius.only(
+                          topLeft: Radius.circular(15),
+                          topRight: Radius.circular(15)),
+                      gradient: LinearGradient(
+                          begin: Alignment.topCenter,
+                          end: Alignment.bottomCenter,
+                          colors: [AppColor.blue, AppColor.blue5])),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      InkWell(
-                        onTap: () {
-                          print("object");
-                        },
-                        child: Container(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 20, vertical: 10),
-                          decoration: BoxDecoration(
-                              color: AppColor.white,
-                              borderRadius: BorderRadius.circular(20)),
-                          child: Text(
-                            "Design",
-                            style: TextStyle(
-                                fontSize: 12,
-                                color: AppColor.blue7,
-                                fontWeight: FontWeight.w600),
-                          ),
-                        ),
-                      )
+                      TextField(
+                        maxLines: 3,
+                        style: TextStyle(
+                            color: AppColor.white,
+                            fontWeight: FontWeight.w800,
+                            fontSize: 20),
+                        cursorColor: AppColor.white,
+                        decoration: InputDecoration(
+                            label: Text("Discription",
+                                style: TextStyle(
+                                    color: AppColor.white,
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w400)),
+                            enabledBorder: UnderlineInputBorder(
+                                borderSide: BorderSide(
+                                    color: AppColor.white, width: 1.0)),
+                            focusedBorder: UnderlineInputBorder(
+                                borderSide: BorderSide(
+                                    color: AppColor.white, width: 2.0))),
+                      ),
+                      const SizedBox(height: 15),
+                      Text(
+                        "Category",
+                        style: TextStyle(
+                            color: AppColor.white,
+                            fontWeight: FontWeight.w500,
+                            fontSize: 16),
+                      ),
+                      const SizedBox(height: 15),
+                      Wrap(
+                        spacing: 21,
+                        runSpacing: 16,
+                        children: List.generate(controller.catigoriya.length,
+                            (index) {
+                          var item = controller.catigoriya[index];
+                          return InkWell(
+                            onTap: () {
+                              print("object");
+                            },
+                            child: Container(
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 23, vertical: 10),
+                              decoration: BoxDecoration(
+                                  color: AppColor.white,
+                                  borderRadius: BorderRadius.circular(20)),
+                              child: Text(
+                                item,
+                                style: TextStyle(
+                                    fontSize: 12,
+                                    color: AppColor.blue7,
+                                    fontWeight: FontWeight.w600),
+                              ),
+                            ),
+                          );
+                        }),
+                      ),
+                      // nimasxw
+                      const SizedBox(height: 15),
+                      Button1(onTap: () {})
                     ],
-                  )
-                ],
-              ),
-            )
+                  ),
+                )
+              ],
+            ),
           ],
-        ),
-      ],
+        );
+      },
     );
   }
 }
