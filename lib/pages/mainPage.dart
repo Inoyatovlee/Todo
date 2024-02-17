@@ -9,6 +9,7 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
   MainController controller = Get.put(MainController());
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -16,16 +17,15 @@ class _MainPageState extends State<MainPage> {
         builder: (controller) {
           return Scaffold(
             bottomNavigationBar: BottomAppBar(
-              color: AppColor.white,
               padding: EdgeInsets.zero,
-              height: 70,
+              height: 100,
               child: Container(
                 decoration: BoxDecoration(
-                    border: Border.all(color: AppColor.blue),
                     color: AppColor.white,
+                    border: Border.all(color: AppColor.blue5),
                     borderRadius: const BorderRadius.only(
-                        topLeft: Radius.circular(16),
-                        topRight: Radius.circular(16))),
+                        topLeft: Radius.circular(10),
+                        topRight: Radius.circular(10))),
                 child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: List.generate(controller.menus.length, (index) {
@@ -35,8 +35,9 @@ class _MainPageState extends State<MainPage> {
                             controller.setWidget(item['id']);
                           },
                           child: Padding(
-                              padding: EdgeInsets.all(10),
+                              padding: const EdgeInsets.all(10),
                               child: SvgPicture.asset(item['icon'],
+                                  width: 30,
                                   color: item['id'] == controller.currentPageId
                                       ? AppColor.blue7
                                       : AppColor.grey7)));
