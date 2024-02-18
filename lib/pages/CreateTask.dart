@@ -78,10 +78,51 @@ class _CreateTaskState extends State<CreateTask> {
                         Row(
                           children: [
                             TaskTimeComponents(
-                                label: "Start Time", time: "03:15"),
+                                label: "Start Time",
+                                time: "03:15",
+                                onTap: () {
+                                  Get.dialog(AlertDialog(
+                                    shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.all(
+                                            Radius.circular(10))),
+                                    content: Column(
+                                      mainAxisSize: MainAxisSize.min,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text("Soat"),
+                                        SingleChildScrollView(
+                                          scrollDirection: Axis.horizontal,
+                                          child: Row(
+                                              children: List.generate(
+                                                  controller.hours.length,
+                                                  (index) {
+                                            return Container(
+                                              padding: EdgeInsets.symmetric(
+                                                  horizontal: 5, vertical: 2),
+                                              margin: EdgeInsets.only(right: 5),
+                                              decoration: BoxDecoration(
+                                                  border: Border.all(
+                                                    color: AppColor.blue7,
+                                                  ),
+                                                  borderRadius:
+                                                      BorderRadius.circular(5)),
+                                              child:
+                                                  Text(controller.hours[index]),
+                                            );
+                                          })),
+                                        )
+                                      ],
+                                    ),
+                                  ));
+                                }),
                             SizedBox(width: 110),
                             TaskTimeComponents(
-                                label: "End Time", time: "07:15"),
+                                label: "End Time",
+                                time: "07:15",
+                                onTap: () {
+                                  print("End Time");
+                                }),
                           ],
                         ),
                         Divider(color: AppColor.white, thickness: 2),
@@ -165,25 +206,32 @@ class TaskTimeComponents extends StatelessWidget {
     super.key,
     required this.label,
     required this.time,
+    required this.onTap,
   });
 
   String label, time;
+  Function onTap;
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(label,
-            style: TextStyle(
-                color: AppColor.white,
-                fontSize: 18,
-                fontWeight: FontWeight.w400)),
-        Text(time,
-            style: TextStyle(
-                color: AppColor.white,
-                fontSize: 22,
-                fontWeight: FontWeight.w800)),
-      ],
+    return InkWell(
+      onTap: () {
+        onTap();
+      },
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(label,
+              style: TextStyle(
+                  color: AppColor.white,
+                  fontSize: 18,
+                  fontWeight: FontWeight.w400)),
+          Text(time,
+              style: TextStyle(
+                  color: AppColor.white,
+                  fontSize: 22,
+                  fontWeight: FontWeight.w800)),
+        ],
+      ),
     );
   }
 }
