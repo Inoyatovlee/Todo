@@ -4,9 +4,11 @@ import 'package:todo_app/config/imorts.dart';
 class Button1 extends StatelessWidget {
   String text;
   Function? onTap;
+  bool dense;
   Button1({
     super.key,
     this.text = "Text",
+    this.dense = false,
     this.onTap,
   });
 
@@ -20,7 +22,8 @@ class Button1 extends StatelessWidget {
         }
       },
       child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 18),
+        padding: EdgeInsets.symmetric(
+            horizontal: dense ? 12 : 20, vertical: dense ? 10 : 18),
         width: double.maxFinite,
         decoration: BoxDecoration(
             color: AppColor.primary, borderRadius: BorderRadius.circular(20)),
