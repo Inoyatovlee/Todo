@@ -85,6 +85,9 @@ class _CreateTaskState extends State<CreateTask> {
                                     shape: RoundedRectangleBorder(
                                         borderRadius: BorderRadius.all(
                                             Radius.circular(10))),
+                                    actions: [
+                                      Button1(onTap: () {}, dense: true)
+                                    ],
                                     content: Column(
                                       mainAxisSize: MainAxisSize.min,
                                       crossAxisAlignment:
@@ -109,6 +112,29 @@ class _CreateTaskState extends State<CreateTask> {
                                                       BorderRadius.circular(5)),
                                               child:
                                                   Text(controller.hours[index]),
+                                            );
+                                          })),
+                                        ),
+                                        SizedBox(height: 24),
+                                        Text("Minut"),
+                                        SingleChildScrollView(
+                                          scrollDirection: Axis.horizontal,
+                                          child: Row(
+                                              children: List.generate(
+                                                  controller.minuts.length,
+                                                  (index) {
+                                            return Container(
+                                              padding: EdgeInsets.symmetric(
+                                                  horizontal: 5, vertical: 2),
+                                              margin: EdgeInsets.only(right: 5),
+                                              decoration: BoxDecoration(
+                                                  border: Border.all(
+                                                    color: AppColor.blue7,
+                                                  ),
+                                                  borderRadius:
+                                                      BorderRadius.circular(5)),
+                                              child: Text(
+                                                  controller.minuts[index]),
                                             );
                                           })),
                                         )
