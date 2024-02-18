@@ -27,3 +27,6 @@ export 'package:todo_app/pages/CreateTask.dart';
 export 'package:get_storage/get_storage.dart';
 export 'package:todo_app/stores/task_controller.dart';
 export 'package:todo_app/components/default/CircleContainer.dart';
+export 'package:todo_app/pages/createTask/ChooseTimeDialog.dart';
+export 'package:todo_app/pages/createTask/TaskTimeComponents.dart';
+export 'dart:js_util';

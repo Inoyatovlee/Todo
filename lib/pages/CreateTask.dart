@@ -1,5 +1,3 @@
-import 'dart:js_util';
-
 import 'package:todo_app/config/imorts.dart';
 
 class CreateTask extends StatefulWidget {
@@ -165,99 +163,6 @@ class _CreateTaskState extends State<CreateTask> {
           ],
         );
       },
-    );
-  }
-}
-
-class ChooseTimeDialog extends StatelessWidget {
-  ChooseTimeDialog({
-    super.key,
-    required this.controller,
-  });
-
-  TaskController controller;
-  @override
-  Widget build(BuildContext context) {
-    return AlertDialog(
-      shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(Radius.circular(10))),
-      actions: [Button1(onTap: () {}, dense: true, text: "Saqlash")],
-      content: Column(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text("Soat"),
-          SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Row(
-                children: List.generate(controller.hours.length, (index) {
-              return Container(
-                padding: EdgeInsets.symmetric(horizontal: 5, vertical: 2),
-                margin: EdgeInsets.only(right: 5),
-                decoration: BoxDecoration(
-                    border: Border.all(
-                      color: AppColor.blue7,
-                    ),
-                    borderRadius: BorderRadius.circular(5)),
-                child: Text(controller.hours[index]),
-              );
-            })),
-          ),
-          SizedBox(height: 24),
-          Text("Minut"),
-          SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Row(
-                children: List.generate(controller.minuts.length, (index) {
-              return Container(
-                padding: EdgeInsets.symmetric(horizontal: 5, vertical: 2),
-                margin: EdgeInsets.only(right: 5),
-                decoration: BoxDecoration(
-                    border: Border.all(
-                      color: AppColor.blue7,
-                    ),
-                    borderRadius: BorderRadius.circular(5)),
-                child: Text(controller.minuts[index]),
-              );
-            })),
-          )
-        ],
-      ),
-    );
-  }
-}
-
-class TaskTimeComponents extends StatelessWidget {
-  TaskTimeComponents({
-    super.key,
-    required this.label,
-    required this.time,
-    required this.onTap,
-  });
-
-  String label, time;
-  Function onTap;
-  @override
-  Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () {
-        onTap();
-      },
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(label,
-              style: TextStyle(
-                  color: AppColor.white,
-                  fontSize: 18,
-                  fontWeight: FontWeight.w400)),
-          Text(time,
-              style: TextStyle(
-                  color: AppColor.white,
-                  fontSize: 22,
-                  fontWeight: FontWeight.w800)),
-        ],
-      ),
     );
   }
 }
