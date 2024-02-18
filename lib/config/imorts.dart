@@ -26,3 +26,4 @@ export 'package:todo_app/pages/calendar.dart';
 export 'package:todo_app/pages/CreateTask.dart';
 export 'package:get_storage/get_storage.dart';
 export 'package:todo_app/stores/task_controller.dart';
+export 'package:todo_app/components/default/CircleContainer.dart';
