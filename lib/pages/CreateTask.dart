@@ -81,66 +81,8 @@ class _CreateTaskState extends State<CreateTask> {
                                 label: "Start Time",
                                 time: "03:15",
                                 onTap: () {
-                                  Get.dialog(AlertDialog(
-                                    shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.all(
-                                            Radius.circular(10))),
-                                    actions: [
-                                      Button1(onTap: () {}, dense: true)
-                                    ],
-                                    content: Column(
-                                      mainAxisSize: MainAxisSize.min,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Text("Soat"),
-                                        SingleChildScrollView(
-                                          scrollDirection: Axis.horizontal,
-                                          child: Row(
-                                              children: List.generate(
-                                                  controller.hours.length,
-                                                  (index) {
-                                            return Container(
-                                              padding: EdgeInsets.symmetric(
-                                                  horizontal: 5, vertical: 2),
-                                              margin: EdgeInsets.only(right: 5),
-                                              decoration: BoxDecoration(
-                                                  border: Border.all(
-                                                    color: AppColor.blue7,
-                                                  ),
-                                                  borderRadius:
-                                                      BorderRadius.circular(5)),
-                                              child:
-                                                  Text(controller.hours[index]),
-                                            );
-                                          })),
-                                        ),
-                                        SizedBox(height: 24),
-                                        Text("Minut"),
-                                        SingleChildScrollView(
-                                          scrollDirection: Axis.horizontal,
-                                          child: Row(
-                                              children: List.generate(
-                                                  controller.minuts.length,
-                                                  (index) {
-                                            return Container(
-                                              padding: EdgeInsets.symmetric(
-                                                  horizontal: 5, vertical: 2),
-                                              margin: EdgeInsets.only(right: 5),
-                                              decoration: BoxDecoration(
-                                                  border: Border.all(
-                                                    color: AppColor.blue7,
-                                                  ),
-                                                  borderRadius:
-                                                      BorderRadius.circular(5)),
-                                              child: Text(
-                                                  controller.minuts[index]),
-                                            );
-                                          })),
-                                        )
-                                      ],
-                                    ),
-                                  ));
+                                  Get.dialog(
+                                      ChooseTimeDialog(controller: controller));
                                 }),
                             SizedBox(width: 110),
                             TaskTimeComponents(
@@ -223,6 +165,64 @@ class _CreateTaskState extends State<CreateTask> {
           ],
         );
       },
+    );
+  }
+}
+
+class ChooseTimeDialog extends StatelessWidget {
+  ChooseTimeDialog({
+    super.key,
+    required this.controller,
+  });
+
+  TaskController controller;
+  @override
+  Widget build(BuildContext context) {
+    return AlertDialog(
+      shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(Radius.circular(10))),
+      actions: [Button1(onTap: () {}, dense: true, text: "Saqlash")],
+      content: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text("Soat"),
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+                children: List.generate(controller.hours.length, (index) {
+              return Container(
+                padding: EdgeInsets.symmetric(horizontal: 5, vertical: 2),
+                margin: EdgeInsets.only(right: 5),
+                decoration: BoxDecoration(
+                    border: Border.all(
+                      color: AppColor.blue7,
+                    ),
+                    borderRadius: BorderRadius.circular(5)),
+                child: Text(controller.hours[index]),
+              );
+            })),
+          ),
+          SizedBox(height: 24),
+          Text("Minut"),
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+                children: List.generate(controller.minuts.length, (index) {
+              return Container(
+                padding: EdgeInsets.symmetric(horizontal: 5, vertical: 2),
+                margin: EdgeInsets.only(right: 5),
+                decoration: BoxDecoration(
+                    border: Border.all(
+                      color: AppColor.blue7,
+                    ),
+                    borderRadius: BorderRadius.circular(5)),
+                child: Text(controller.minuts[index]),
+              );
+            })),
+          )
+        ],
+      ),
     );
   }
 }
