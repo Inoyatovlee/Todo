@@ -77,17 +77,18 @@ class _CreateTaskState extends State<CreateTask> {
                           children: [
                             TaskTimeComponents(
                                 label: "Start Time",
-                                time: "03:15",
+                                time: controller.starTime,
                                 onTap: () {
-                                  Get.dialog(
-                                      ChooseTimeDialog(controller: controller));
+                                  Get.dialog(ChooseTimeDialog(
+                                      controller: controller, start: true));
                                 }),
                             SizedBox(width: 110),
                             TaskTimeComponents(
                                 label: "End Time",
-                                time: "07:15",
+                                time: controller.endTime,
                                 onTap: () {
-                                  print("End Time");
+                                  Get.dialog(ChooseTimeDialog(
+                                      controller: controller, start: false));
                                 }),
                           ],
                         ),

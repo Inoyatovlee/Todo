@@ -55,4 +55,17 @@ class TaskController extends GetxController {
 
     super.onInit();
   }
+
+  String starTime = "00:00";
+  String endTime = "00:00";
+
+  saveTime(bool start, time) {
+    if (start) {
+      starTime = time;
+    } else {
+      endTime = time;
+    }
+    update();
+    Get.back();
+  }
 }
