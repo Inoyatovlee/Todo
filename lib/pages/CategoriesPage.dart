@@ -51,16 +51,32 @@ class _CategoriesPageState extends State<CategoriesPage> {
                     style: TextStyle(fontSize: 18, color: AppColor.blue5)),
                 Spacer(),
                 PopupMenuButton(
-                  color: AppColor.blue3,
+                  icon: Icon(Icons.more_vert_outlined, color: AppColor.blue5),
+                  color: AppColor.blue5,
                   itemBuilder: (context) => [
                     PopupMenuItem(
                       value: 1,
                       child: Row(
                         children: [
-                          Icon(Icons.safety_divider, color: AppColor.white),
+                          Icon(Icons.edit, color: AppColor.white),
                           SizedBox(width: 10),
                           Text(
-                            "Yayu",
+                            "Tahrirlash",
+                            style: TextStyle(
+                                color: AppColor.white,
+                                fontWeight: FontWeight.w600),
+                          )
+                        ],
+                      ),
+                    ),
+                    PopupMenuItem(
+                      value: 1,
+                      child: Row(
+                        children: [
+                          Icon(Icons.delete, color: AppColor.white),
+                          SizedBox(width: 10),
+                          Text(
+                            "O'chirish",
                             style: TextStyle(
                                 color: AppColor.white,
                                 fontWeight: FontWeight.w600),
