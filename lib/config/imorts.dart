@@ -21,7 +21,7 @@ export 'package:todo_app/config/icons.dart';
 export 'package:todo_app/stores/main_controller.dart';
 export 'package:flutter_svg/flutter_svg.dart';
 export 'package:todo_app/pages/add.dart';
-export 'package:todo_app/pages/ball.dart';
+export 'package:todo_app/pages/CategoriesPage.dart';
 export 'package:todo_app/pages/calendar.dart';
 export 'package:todo_app/pages/CreateTask.dart';
 export 'package:get_storage/get_storage.dart';
