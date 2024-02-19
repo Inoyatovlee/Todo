@@ -50,9 +50,27 @@ class _CategoriesPageState extends State<CategoriesPage> {
                 Text("Musiqa",
                     style: TextStyle(fontSize: 18, color: AppColor.blue5)),
                 Spacer(),
-                IconButton(
-                    onPressed: () {},
-                    icon: Icon(Icons.more_vert_outlined, color: AppColor.blue5))
+                PopupMenuButton(
+                  color: AppColor.blue3,
+                  itemBuilder: (context) => [
+                    PopupMenuItem(
+                      value: 1,
+                      child: Row(
+                        children: [
+                          Icon(Icons.safety_divider, color: AppColor.white),
+                          SizedBox(width: 10),
+                          Text(
+                            "Yayu",
+                            style: TextStyle(
+                                color: AppColor.white,
+                                fontWeight: FontWeight.w600),
+                          )
+                        ],
+                      ),
+                    )
+                  ],
+                  elevation: 2,
+                )
               ],
             ),
           )
