@@ -7,7 +7,7 @@ class MainController extends GetxController {
     {"id": 1, "icon": AppIcon.home, "page": const HomePage()},
     {"id": 2, "icon": AppIcon.calendar, "page": const CalendarPage()},
     {"id": 3, "icon": AppIcon.add, "page": const CreateTask()},
-    {"id": 4, "icon": AppIcon.bell, "page": const BallPage()},
+    {"id": 4, "icon": AppIcon.bell, "page": const CategoriesPage()},
     {"id": 5, "icon": AppIcon.shield, "page": const AddPage()},
   ];
 
