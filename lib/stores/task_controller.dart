@@ -26,6 +26,39 @@ class TaskController extends GetxController {
       }
     }
   }
+
+  @override
+  void onInit() {
+    autoSet(24, hours);
+    autoSet(60, minuts);
+
+    super.onInit();
+  }
+
+  String starTime = "00:00";
+  String endTime = "00:00";
+  String selectedCategory = "";
+
+  saveTime(bool start, time) {
+    if (start) {
+      starTime = time;
+    } else {
+      endTime = time;
+    }
+    update();
+    Get.back();
+  }
+
+// Category ni tanlaydi:
+  setCategory(String category) {
+    selectedCategory = category;
+    update();
+  }
+}
+
+
+
+
 // //soat uchun
 //   autoSetHours() {
 //     for (var i = 0; i < 24; i++) {
@@ -47,25 +80,3 @@ class TaskController extends GetxController {
 //       }
 //     }
 //   }
-
-  @override
-  void onInit() {
-    autoSet(24, hours);
-    autoSet(60, minuts);
-
-    super.onInit();
-  }
-
-  String starTime = "00:00";
-  String endTime = "00:00";
-
-  saveTime(bool start, time) {
-    if (start) {
-      starTime = time;
-    } else {
-      endTime = time;
-    }
-    update();
-    Get.back();
-  }
-}

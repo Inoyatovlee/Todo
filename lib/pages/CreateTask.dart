@@ -82,7 +82,7 @@ class _CreateTaskState extends State<CreateTask> {
                                   Get.dialog(ChooseTimeDialog(
                                       controller: controller, start: true));
                                 }),
-                            SizedBox(width: 110),
+                            const SizedBox(width: 110),
                             TaskTimeComponents(
                                 label: "End Time",
                                 time: controller.endTime,
@@ -130,14 +130,16 @@ class _CreateTaskState extends State<CreateTask> {
                             var item = controller.catigoriya[index];
                             return InkWell(
                               onTap: () {
-                                print("object");
+                                controller.setCategory(item);
                               },
                               child: Container(
                                 width: 100,
                                 padding: const EdgeInsets.symmetric(
                                     horizontal: 20, vertical: 10),
                                 decoration: BoxDecoration(
-                                    color: AppColor.white,
+                                    color: item == controller.selectedCategory
+                                        ? AppColor.blue7
+                                        : AppColor.white,
                                     borderRadius: BorderRadius.circular(20)),
                                 child: Text(
                                   item,
@@ -145,7 +147,9 @@ class _CreateTaskState extends State<CreateTask> {
                                   overflow: TextOverflow.ellipsis,
                                   style: TextStyle(
                                       fontSize: 12,
-                                      color: AppColor.blue7,
+                                      color: item == controller.selectedCategory
+                                          ? AppColor.white
+                                          : AppColor.blue7,
                                       fontWeight: FontWeight.w600),
                                 ),
                               ),
