@@ -30,3 +30,6 @@ export 'package:todo_app/components/default/CircleContainer.dart';
 export 'package:todo_app/pages/createTask/ChooseTimeDialog.dart';
 export 'package:todo_app/pages/createTask/TaskTimeComponents.dart';
 export 'dart:js_util';
+export 'package:path/path.dart';
+export 'package:sqflite/sqflite.dart';
+export 'package:todo_app/pages/CategoriesPage/AddCategorieDialod.dart';
