@@ -32,30 +32,7 @@ class _CategoriesPageState extends State<CategoriesPage> {
                 Spacer(),
                 InkWell(
                   onTap: () {
-                    Get.dialog(AlertDialog(
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(10))),
-                      content: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            "Kategoriya qo'shish",
-                            style: TextStyle(
-                                color: AppColor.blue5,
-                                fontSize: 18,
-                                fontWeight: FontWeight.w600),
-                          ),
-                          SizedBox(height: 15),
-                          Input(hindText: "Kategoriya nomi"),
-                          SizedBox(height: 15),
-                          Button1(
-                            text: "Qo'shish",
-                            onTap: () {},
-                          ),
-                        ],
-                      ),
-                    ));
+                    Get.dialog(AddCategorieDialod());
                   },
                   child: Icon(Icons.add_circle_outline_outlined,
                       color: AppColor.blue5, size: 30),
