@@ -8,11 +8,13 @@ class CategoriesPage extends StatefulWidget {
 }
 
 class _CategoriesPageState extends State<CategoriesPage> {
+  CategoryController controller = Get.put(CategoryController());
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      constraints: BoxConstraints(maxWidth: 500),
-      padding: EdgeInsetsDirectional.symmetric(horizontal: 16),
+      constraints: const BoxConstraints(maxWidth: 500),
+      padding: const EdgeInsetsDirectional.symmetric(horizontal: 16),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -21,7 +23,7 @@ class _CategoriesPageState extends State<CategoriesPage> {
             padding: const EdgeInsets.symmetric(vertical: 10),
             child: Row(
               children: [
-                Spacer(),
+                const Spacer(),
                 Text(
                   "Kategoriyalar",
                   style: TextStyle(
@@ -29,10 +31,14 @@ class _CategoriesPageState extends State<CategoriesPage> {
                       fontSize: 18,
                       fontWeight: FontWeight.w600),
                 ),
-                Spacer(),
+                const Spacer(),
                 InkWell(
                   onTap: () {
-                    Get.dialog(AddCategorieDialod());
+                    Get.dialog(AddCategorieDialod(
+                        textcontroller: controller.title,
+                        onTap: () {
+                          controller.add();
+                        }));
                   },
                   child: Icon(Icons.add_circle_outline_outlined,
                       color: AppColor.blue5, size: 30),
@@ -42,8 +48,8 @@ class _CategoriesPageState extends State<CategoriesPage> {
           ),
           //fewwe
           Container(
-            padding:
-                EdgeInsetsDirectional.symmetric(horizontal: 16, vertical: 5),
+            padding: const EdgeInsetsDirectional.symmetric(
+                horizontal: 16, vertical: 5),
             decoration: BoxDecoration(
                 border: Border.all(color: AppColor.blue5),
                 borderRadius: BorderRadius.circular(10)),
@@ -51,7 +57,7 @@ class _CategoriesPageState extends State<CategoriesPage> {
               children: [
                 Text("Musiqa",
                     style: TextStyle(fontSize: 18, color: AppColor.blue5)),
-                Spacer(),
+                const Spacer(),
                 PopupMenuButton(
                   icon: Icon(Icons.more_vert_outlined, color: AppColor.blue5),
                   color: AppColor.blue5,
@@ -61,7 +67,7 @@ class _CategoriesPageState extends State<CategoriesPage> {
                       child: Row(
                         children: [
                           Icon(Icons.edit, color: AppColor.white),
-                          SizedBox(width: 10),
+                          const SizedBox(width: 10),
                           Text(
                             "Tahrirlash",
                             style: TextStyle(
@@ -76,7 +82,7 @@ class _CategoriesPageState extends State<CategoriesPage> {
                       child: Row(
                         children: [
                           Icon(Icons.delete, color: AppColor.white),
-                          SizedBox(width: 10),
+                          const SizedBox(width: 10),
                           Text(
                             "O'chirish",
                             style: TextStyle(

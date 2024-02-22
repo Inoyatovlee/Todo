@@ -2,6 +2,7 @@ import 'package:todo_app/config/imorts.dart';
 
 void main() async {
   await GetStorage.init();
+  sqfliteFfiInit(); //yandi
   runApp(const MyApp());
 }
 

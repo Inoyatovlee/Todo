@@ -20,7 +20,7 @@ dependencies:
   smooth_page_indicator: ^1.1.0
   flutter_svg: ^2.0.9
   get_storage: ^2.1.1
-
+  sqflite_common_ffi: ^2.3.2+1
 
   #UX
 
